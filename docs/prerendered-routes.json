@@ -1,0 +1,13 @@
+{
+  "routes": {
+    "/": {},
+    "/conclusiones": {},
+    "/ejemplo": {},
+    "/funcionamiento": {},
+    "/instalacion": {},
+    "/justificacion": {},
+    "/primerospasos": {},
+    "/recursos": {},
+    "/utilizacion": {}
+  }
+}
