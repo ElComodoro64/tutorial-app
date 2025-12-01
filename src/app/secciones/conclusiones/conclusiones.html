@@ -1,0 +1,182 @@
+<section class="seccion">
+    <h2>Conclusiones del tutorial</h2>
+  
+    <figure class="imagen-lateral">
+      <img src="img/olas.jpg" alt="Olas al atardecer">
+      <figcaption>“Lo importante no es solo llegar a puerto, sino entender cómo se ha navegado.”</figcaption>
+    </figure>
+  
+    <p>
+      Este tutorial ha servido como primera travesía con Angular, tomando como
+      referencia la Bitácora original en HTML y CSS y trasladándola a una
+      aplicación de una sola página construida con un framework moderno.
+    </p>
+  
+    <p>
+      En esta sección se recogen las principales conclusiones: qué objetivos se
+      plantearon al inicio, qué se ha conseguido realmente y qué queda abierto
+      para futuras mejoras.
+    </p>
+  
+    <h3 class="indice-titulo">Índice de la sección</h3>
+  
+    <ul class="acordeon">
+  
+      <!-- 1. Objetivos planteados -->
+      <li>
+        <button type="button" (click)="toggleApartado('objetivos')">
+          <span>Punto 1. Objetivos planteados al inicio del tutorial</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('objetivos')">
+          <p>
+            Al comenzar la práctica se fijaron varios objetivos claros:
+          </p>
+  
+          <ul>
+            <li>Crear un tutorial navegable sobre Angular dirigido a principiantes.</li>
+            <li>
+              Mantener el tono narrativo de la Bitácora del Comodoro, pero aplicado
+              a un entorno más técnico.
+            </li>
+            <li>
+              Demostrar el uso real del framework: estructura de proyecto, CLI,
+              rutas, componentes y control del DOM.
+            </li>
+            <li>
+              Documentar cada paso de forma que cualquier alumno pueda repetir el
+              proceso en su propio equipo.
+            </li>
+          </ul>
+  
+          <p class="aside">
+            El objetivo no era dominar todo Angular, sino construir una base sólida
+            sobre la que seguir aprendiendo.
+          </p>
+        </div>
+      </li>
+  
+      <!-- 2. Qué sabe hacer el alumno al terminar -->
+      <li>
+        <button type="button" (click)="toggleApartado('aprendizajes')">
+          <span>Punto 2. Qué sabe hacer el alumno al terminar el tutorial</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('aprendizajes')">
+          <p>
+            Tras completar todas las secciones, el alumno es capaz de:
+          </p>
+  
+          <ul>
+            <li>Instalar Node y Angular CLI y comprobar sus versiones.</li>
+            <li>
+              Crear un nuevo proyecto Angular desde cero y ejecutarlo en modo
+              desarrollo.
+            </li>
+            <li>
+              Entender la estructura básica del proyecto: carpetas, ficheros
+              principales y papel de cada uno.
+            </li>
+            <li>
+              Crear componentes standalone para organizar el contenido del
+              tutorial en secciones.
+            </li>
+            <li>
+              Configurar el enrutador para navegar entre esas secciones mediante
+              enlaces en la cabecera.
+            </li>
+            <li>
+              Aplicar estilos coherentes y reutilizar patrones de diseño (tarjetas,
+              índice, acordeones, notas laterales).
+            </li>
+          </ul>
+  
+          <p class="aside">
+            En otras palabras, al terminar este tutorial el alumno ya ha construido
+            una aplicación Angular pequeña pero completa.
+          </p>
+        </div>
+      </li>
+  
+      <!-- 3. Dificultades y puntos críticos -->
+      <li>
+        <button type="button" (click)="toggleApartado('dificultades')">
+          <span>Punto 3. Dificultades encontradas y puntos críticos</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('dificultades')">
+          <p>
+            Durante el desarrollo se han detectado varios puntos en los que es
+            fácil que un alumno se pierda si no se explican con calma:
+          </p>
+  
+          <ul>
+            <li>
+              La configuración inicial del entorno (PATH y variables de Node y npm).
+            </li>
+            <li>
+              La relación entre el menú, las rutas y el <code>&lt;router-outlet&gt;</code>:
+              si un eslabón falla, la sección no se muestra.
+            </li>
+            <li>
+              La diferencia entre editar <code>app.html</code> y editar las
+              plantillas individuales de cada sección.
+            </li>
+            <li>
+              La gestión del servidor de desarrollo: entender que
+              <code>ng serve</code> ocupa la consola y se detiene con
+              <code>Ctrl + C</code>.
+            </li>
+          </ul>
+  
+          <p class="aside">
+            Estas dificultades se han ido usando como ejemplos dentro del tutorial
+            para que otros estudiantes puedan evitarlas o resolverlas más rápido.
+          </p>
+        </div>
+      </li>
+  
+      <!-- 4. Trabajo futuro y posibles mejoras -->
+      <li>
+        <button type="button" (click)="toggleApartado('futuro')">
+          <span>Punto 4. Trabajo futuro y posibles mejoras del tutorial</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('futuro')">
+          <p>
+            Aunque el tutorial cumple los requisitos de la práctica, deja margen
+            para seguir creciendo:
+          </p>
+  
+          <ul>
+            <li>
+              Añadir ejemplos de interacción con datos más avanzados
+              (formularios, validaciones, servicios).
+            </li>
+            <li>
+              Incorporar un apartado de ejercicios guiados donde el alumno tenga
+              que modificar o ampliar partes del código.
+            </li>
+            <li>
+              Mejorar todavía más la accesibilidad y la responsividad del diseño.
+            </li>
+            <li>
+              Publicar el código en un repositorio público con control de
+              versiones para poder seguir evolucionando el proyecto.
+            </li>
+          </ul>
+  
+          <p class="aside">
+            El barco está listo para navegar más lejos: este tutorial es solo el
+            primer tramo de la carta de navegación con Angular.
+          </p>
+        </div>
+      </li>
+  
+    </ul>
+  </section>
+  

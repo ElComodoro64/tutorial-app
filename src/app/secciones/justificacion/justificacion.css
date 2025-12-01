@@ -1,0 +1,131 @@
+/* Lista de índice elegante */
+.seccion ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .seccion ul li button {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    background-color: #f4f7fb;
+    border: 1px solid #ced7e0;
+    text-align: left;
+    font-size: 0.95rem;
+    color: #1c2a39;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+  }
+  
+  .seccion ul li button:hover {
+    background-color: #e2e8f0;
+    transform: translateX(3px);
+  }
+  
+  .seccion ul li button:active {
+    background-color: #d2dae3;
+  }
+  
+  /* Contenido individual */
+  .seccion h3 {
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .navegacion-seccion {
+    margin-top: 1.5rem;
+  }
+  
+  .navegacion-seccion button {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    background: #ffb347;
+    border: none;
+    color: #1c2a39;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .navegacion-seccion button:hover {
+    background: #ff9f1c;
+  }
+
+  .seccion h3.indice-titulo {
+    margin-top: 4rem !important;
+}
+  /* Acordeón de la sección de justificación */
+
+  .acordeon {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    clear: both;
+  }
+  
+  
+  .acordeon li button {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    border-radius: 8px;
+    background-color: #f4f7fb;
+    border: 1px solid #ced7e0;
+    text-align: left;
+    font-size: 0.95rem;
+    color: #1c2a39;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    transition:
+      background 0.15s ease-in-out,
+      transform 0.1s ease-in-out,
+      box-shadow 0.15s ease-in-out;
+  }
+  
+  .acordeon li button:hover {
+    background-color: #e2e8f0;
+    transform: translateX(2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+  }
+  
+  .acordeon-icono {
+    font-weight: 700;
+    font-size: 1.1rem;
+    opacity: 0.7;
+  }
+  
+  /* Contenedor del contenido del acordeón con apertura suave */
+  .acordeon-contenido {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition:
+      max-height 0.3s ease,
+      opacity 0.25s ease,
+      transform 0.25s ease;
+    will-change: max-height, opacity, transform;
+    padding: 0 0.9rem; /* se “activa” visualmente al abrir */
+  }
+  
+  /* Estado abierto: altura suficiente para el texto */
+  .acordeon-contenido.abierto {
+    max-height: 500px; /* súbelo si algún bloque se queda corto */
+    opacity: 1;
+    transform: translateY(0);
+    padding-top: 0.5rem;
+    padding-bottom: 0.7rem;
+  }
+  
+
+  
+  

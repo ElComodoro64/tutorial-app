@@ -1,0 +1,207 @@
+<section class="seccion">
+    <h2>Funcionamiento interno del framework Angular</h2>
+  
+    <figure class="imagen-lateral">
+      <img src="img/bitacora.jpg" alt="Bitácora y brújula sobre un mapa náutico">
+      <figcaption>“Cuanto mejor conoces el barco, menos miedo dan las tormentas.”</figcaption>
+    </figure>
+  
+    <p>
+      Hasta ahora hemos visto cómo crear secciones, configurar rutas y arrancar la
+      aplicación. En este apartado se explica qué está haciendo Angular “por dentro”
+      con esos archivos: sobre qué actúa, qué ficheros intervienen en cada parte del
+      tutorial y cómo se conectan entre sí.
+    </p>
+  
+    <p>
+      El objetivo no es entrar en todos los detalles del framework, sino entender lo
+      suficiente como para saber dónde tocar cuando algo no se muestra o no se
+      comporta como esperas.
+    </p>
+  
+    <h3 class="indice-titulo">Índice de la sección</h3>
+  
+    <ul class="acordeon">
+  
+      <!-- BLOQUE 1: ¿Sobre qué actúa Angular? -->
+      <li>
+        <button type="button" (click)="toggleApartado('actua')">
+          <span>Punto 1. ¿Sobre qué actúa realmente Angular en este tutorial?</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('actua')">
+          <p>
+            Angular no trabaja directamente con “páginas sueltas” como un sitio HTML
+            estático, sino con <strong>componentes</strong>. En este tutorial, cada
+            página principal (Portada, Justificación, Instalación, Utilización, etc.)
+            es un componente independiente.
+          </p>
+  
+          <p>
+            Cada componente está formado, como mínimo, por tres piezas:
+          </p>
+  
+          <ul>
+            <li><strong>Un fichero TypeScript</strong> (por ejemplo <code>justificacion.ts</code>): define la clase del componente y su configuración.</li>
+            <li><strong>Un fichero HTML</strong> (por ejemplo <code>justificacion.html</code>): contiene la plantilla que verá el usuario.</li>
+            <li><strong>Un fichero CSS</strong> (por ejemplo <code>justificacion.css</code>): define los estilos específicos de esa sección.</li>
+          </ul>
+  
+          <p>
+            Angular utiliza el archivo de rutas <code>app.routes.ts</code> para decidir
+            qué componente cargar en función de la URL. El contenido se inserta dentro
+            del elemento <code>&lt;router-outlet&gt;</code> definido en
+            <code>app.html</code>.
+          </p>
+  
+          <p>Esquema simplificado de lo que ocurre al navegar:</p>
+  
+          <pre><code>1. El usuario entra en http://localhost:4200/justificacion
+  2. El enrutador busca una ruta con path 'justificacion'.
+  3. Esa ruta apunta al componente Justificacion.
+  4. Angular renderiza justificacion.html dentro de &lt;router-outlet&gt;.</code></pre>
+  
+          <p class="aside">
+            Es decir: Angular actúa sobre componentes y secciones, y decide qué
+            plantilla HTML mostrar dentro del contenedor principal del tutorial.
+          </p>
+        </div>
+      </li>
+  
+      <!-- BLOQUE 2: ¿Cómo se editan los ficheros? -->
+      <li>
+        <button type="button" (click)="toggleApartado('ficheros')">
+          <span>Punto 2. ¿Cómo se editan y para qué sirve cada fichero?</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('ficheros')">
+          <p>
+            En el día a día del tutorial se tocan principalmente cuatro tipos de
+            ficheros. Cada uno tiene un papel concreto:
+          </p>
+  
+          <ul>
+            <li>
+              <strong><code>src/app/app.html</code></strong>: plantilla principal de la
+              aplicación. Aquí están el título, el menú de navegación y el
+              <code>&lt;router-outlet&gt;</code> donde Angular va insertando las
+              secciones según la ruta.
+            </li>
+            <li>
+              <strong><code>src/app/app.routes.ts</code></strong>: define el array de
+              rutas que relaciona URLs con componentes.
+            </li>
+            <li>
+              <strong><code>src/app/secciones/&lt;nombre&gt;/&lt;nombre&gt;.html</code></strong>:
+              contenido visual de cada sección del tutorial (texto, imágenes, índices, etc.).
+            </li>
+            <li>
+              <strong><code>src/app/secciones/&lt;nombre&gt;/&lt;nombre&gt;.css</code></strong>:
+              estilos específicos de esa sección, para ajustar espaciados, colores o
+              detalles visuales.
+            </li>
+          </ul>
+  
+          <p>Ejemplo simplificado de <code>app.html</code>:</p>
+  
+          <pre><code>&lt;header&gt;
+    &lt;h1&gt;Bitácora del Comodoro: Tutorial de inicio con Angular&lt;/h1&gt;
+    &lt;!-- Menú de navegación con routerLink --&gt;
+  &lt;/header&gt;
+  
+  &lt;main&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  &lt;/main&gt;</code></pre>
+  
+          <p>
+            Al editar estos ficheros en Visual Studio Code, Angular recompila la
+            aplicación (si <code>ng serve</code> está en marcha) y los cambios se
+            reflejan automáticamente en el navegador.
+          </p>
+  
+          <p class="aside">
+            Si tras editar un fichero no ves cambios, revisa que estás modificando el
+            archivo correcto (por ejemplo, la sección adecuada dentro de
+            <code>secciones/</code>) y que el servidor de desarrollo sigue activo.
+          </p>
+        </div>
+      </li>
+  
+      <!-- BLOQUE 3: ¿Cómo se referencian desde otras partes o aplicaciones? -->
+      <li>
+        <button type="button" (click)="toggleApartado('referencias')">
+          <span>Punto 3. ¿Cómo se referencian las secciones desde otras partes?</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('referencias')">
+          <p>
+            En este tutorial las secciones se utilizan principalmente de dos formas:
+            a través del enrutador y desde el propio menú de navegación.
+          </p>
+  
+          <h4>3.1 Referencia mediante rutas</h4>
+  
+          <p>
+            Cada sección se referencia en <code>app.routes.ts</code> mediante una
+            entrada del array de rutas. Por ejemplo:
+          </p>
+  
+          <pre><code>import &#123; Portada &#125; from './secciones/portada/portada';
+  import &#123; Justificacion &#125; from './secciones/justificacion/justificacion';
+  import &#123; Utilizacion &#125; from './secciones/utilizacion/utilizacion';
+  
+  export const routes = [
+    &#123;
+      path: '',
+      component: Portada
+    &#125;,
+    &#123;
+      path: 'justificacion',
+      component: Justificacion
+    &#125;,
+    &#123;
+      path: 'utilizacion',
+      component: Utilizacion
+    &#125;
+  ];</code></pre>
+  
+          <p>
+            De este modo, al acceder a <code>/justificacion</code> o
+            <code>/utilizacion</code>, Angular sabe qué componente debe renderizar.
+          </p>
+  
+          <h4>3.2 Referencia desde el menú de navegación</h4>
+  
+          <p>
+            El menú de la cabecera hace referencia a esas rutas mediante
+            <code>routerLink</code>. Un ejemplo típico en <code>app.html</code> sería:
+          </p>
+  
+          <pre><code>&lt;nav class="menu"&gt;
+    &lt;a routerLink=""&gt;Portada&lt;/a&gt;
+    &lt;a routerLink="justificacion"&gt;Justificación del framework&lt;/a&gt;
+    &lt;a routerLink="utilizacion"&gt;Utilización del framework&lt;/a&gt;
+  &lt;/nav&gt;</code></pre>
+  
+          <p>
+            Cada enlace no carga una página nueva desde el servidor, sino que le indica
+            al enrutador de Angular qué componente debe mostrarse en el
+            <code>&lt;router-outlet&gt;</code>. Por eso la navegación es fluida y no se
+            recarga toda la página.
+          </p>
+  
+          <p class="aside">
+            En aplicaciones más avanzadas, los componentes también pueden
+            reutilizarse desde otras partes importándolos en la sección
+            <code>imports</code> de otro componente. En este tutorial es suficiente
+            con entender la referencia mediante rutas y menú.
+          </p>
+        </div>
+      </li>
+  
+    </ul>
+  </section>
+  

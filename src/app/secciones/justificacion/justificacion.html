@@ -1,0 +1,180 @@
+<section class="seccion">
+    <h2>Justificación del framework Angular</h2>
+  
+    <figure class="imagen-lateral">
+      <img src="img/ancla.jpg" alt="Ancla marina">
+      <figcaption>“Sin un buen ancla, cualquier rumbo se pierde.”</figcaption>
+    </figure>
+  
+    <p>
+      Antes de adentrarnos en cubiertas más complejas, conviene entender por qué Angular
+      es el casco elegido para este tutorial. En un mar lleno de frameworks, cada uno con
+      sus vientos y sus mareas, no todos están pensados para navegar largas distancias ni
+      soportar el peso de una tripulación grande.
+    </p>
+  
+    <p>
+      Angular destaca cuando una aplicación deja de ser un conjunto de páginas sueltas y
+      empieza a comportarse como una herramienta completa. Aquí respondemos a cuatro
+      preguntas sencillas para comprender por qué este barco merece un hueco en nuestro
+      astillero técnico.
+    </p>
+  
+    <h3 class="indice-titulo">Índice de la sección</h3>
+  
+    <ul class="acordeon">
+  
+      <!-- APARTADO 1 -->
+      <li>
+        <button type="button" (click)="toggleApartado('para-que-sirve')">
+          <span>¿Para qué sirve Angular?</span>
+          <span class="acordeon-icono">
+            @if (isOpen('para-que-sirve')) { − } @else { + }
+          </span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('para-que-sirve')">
+          <p>
+            Angular está pensado para situaciones en las que una aplicación web necesita
+            comportarse como un sistema sólido, rápido y bien organizado. En lugar de
+            recargar la página en cada interacción, permite actualizar solo lo necesario,
+            manteniendo la fluidez de una aplicación moderna sin perder estructura interna.
+          </p>
+  
+          <p>
+            Su mayor virtud no es solo mostrar contenido, sino poner orden: divide la
+            interfaz en componentes, gestiona rutas, formularios y comunicación con el
+            servidor desde una base coherente. Es útil cuando la aplicación va a crecer y
+            cuando el equipo necesita una guía clara para avanzar sin que el código se
+            convierta en un mar de improvisaciones.
+          </p>
+  
+          <p class="aside">
+            En resumen, Angular sirve cuando quieres que la aplicación navegue firme incluso
+            cuando la marea sube y el proyecto se hace grande.
+          </p>
+  
+          <!-- Bibliografía:
+            Angular.dev – Overview / Framework purpose
+            Angular.io – What is Angular?
+            MDN – SPA concept
+          -->
+        </div>
+      </li>
+  
+      <!-- APARTADO 2 -->
+      <li>
+        <button type="button" (click)="toggleApartado('aplicaciones')">
+          <span>¿Qué aplicaciones tiene?</span>
+          <span class="acordeon-icono">
+            @if (isOpen('aplicaciones')) { − } @else { + }
+          </span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('aplicaciones')">
+          <p>
+            Angular se usa con frecuencia en aplicaciones donde el usuario pasa mucho
+            tiempo trabajando: paneles de administración, intranets, sistemas de gestión,
+            portales internos o herramientas corporativas con varias pantallas y roles.
+            Allí donde un proyecto necesita orden y continuidad, Angular encaja bien.
+          </p>
+  
+          <p>
+            Su arquitectura modular permite dividir la aplicación en piezas reutilizables,
+            asignar responsabilidades claras y mantener el código bajo control incluso con
+            varios desarrolladores. Esto lo convierte en una elección natural para proyectos
+            de larga duración, con ciclos de mantenimiento amplios y necesidades de
+            escalabilidad.
+          </p>
+  
+          <p class="aside">
+            Dicho de otro modo: Angular brilla en aplicaciones que no son pasajeras, sino
+            compañeras de travesía.
+          </p>
+  
+          <!-- Bibliografía:
+            Angular.dev – Why Angular / use cases
+            Google Developers – Angular advantages
+            Red Hat – SPA frameworks in enterprise apps
+          -->
+        </div>
+      </li>
+  
+      <!-- APARTADO 3 -->
+      <li>
+        <button type="button" (click)="toggleApartado('lenguajes')">
+          <span>¿Sobre qué lenguajes se apoya?</span>
+          <span class="acordeon-icono">
+            @if (isOpen('lenguajes')) { − } @else { + }
+          </span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('lenguajes')">
+          <p>
+            Angular se apoya principalmente en <strong>TypeScript</strong>, un superconjunto
+            de JavaScript que añade tipos y herramientas pensadas para mejorar la
+            mantenibilidad. Gracias a esto, muchos errores se detectan antes de que la
+            aplicación llegue siquiera a ejecutarse.
+          </p>
+  
+          <p>
+            Para la parte visual utiliza <strong>HTML</strong> y <strong>CSS</strong>, como
+            cualquier aplicación web, y para la comunicación con el servidor emplea
+            peticiones HTTP que intercambian datos en formato <strong>JSON</strong>. Esto
+            mantiene el equilibrio entre modernidad y estándares conocidos.
+          </p>
+  
+          <p class="aside">
+            Angular no inventa un lenguaje nuevo: combina lo que ya conocemos con una base
+            más robusta.
+          </p>
+  
+          <!-- Bibliografía:
+            Angular.io – Angular & TypeScript
+            TypeScript Handbook – Angular examples
+            Angular.dev – Components & templates
+          -->
+        </div>
+      </li>
+  
+      <!-- APARTADO 4 -->
+      <li>
+        <button type="button" (click)="toggleApartado('prerrequisitos')">
+          <span>¿Qué prerrequisitos necesita?</span>
+          <span class="acordeon-icono">
+            @if (isOpen('prerrequisitos')) { − } @else { + }
+          </span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('prerrequisitos')">
+          <p>
+            Para empezar con Angular se necesita tener instalado <strong>Node.js</strong> y
+            su gestor de paquetes <strong>npm</strong>. Con ellos se instala
+            <strong>Angular CLI</strong>, la herramienta oficial que permite crear
+            proyectos, ejecutarlos en local y generar compilaciones para producción con un
+            solo comando.
+          </p>
+  
+          <p>
+            A nivel de conocimientos, basta con manejar <strong>HTML</strong>,
+            <strong>CSS</strong> y <strong>JavaScript</strong>. Aunque Angular utilice
+            TypeScript, su propia estructura facilita adoptarlo poco a poco, sin obligar a
+            dominarlo desde el inicio.
+          </p>
+  
+          <p class="aside">
+            En otras palabras: no necesitas ser capitán experimentado para empezar, pero sí
+            conocer cómo se maneja el timón básico.
+          </p>
+  
+          <!-- Bibliografía:
+            Angular.dev – Installation & prerequisites
+            Angular CLI official docs
+            Node.js official docs
+          -->
+        </div>
+      </li>
+  
+    </ul>
+  </section>
+  

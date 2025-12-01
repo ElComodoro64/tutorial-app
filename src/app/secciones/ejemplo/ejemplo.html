@@ -1,0 +1,185 @@
+<section class="seccion">
+    <h2>Aplicación de ejemplo: la Bitácora Angular del Comodoro</h2>
+  
+    <figure class="imagen-lateral">
+      <img src="img/puerto.jpg" alt="Barco amarrado en el puerto al amanecer">
+      <figcaption>“Este tutorial es el propio barco de pruebas del viaje con Angular.”</figcaption>
+    </figure>
+  
+    <p>
+      La práctica pide desarrollar una aplicación de ejemplo con el framework.
+      En nuestro caso, esa aplicación es precisamente este tutorial: una
+      <strong>Single Page Application (SPA)</strong> construida con Angular que
+      organiza el contenido en secciones, rutas y componentes reutilizables.
+    </p>
+  
+    <p>
+      En esta sección se resume qué demuestra esta aplicación, cómo está
+      construida y de qué forma cumple los requisitos de la actividad.
+    </p>
+  
+    <h3 class="indice-titulo">Índice de la sección</h3>
+  
+    <ul class="acordeon">
+  
+      <!-- BLOQUE 1: Qué demuestra la aplicación de ejemplo -->
+      <li>
+        <button type="button" (click)="toggleApartado('que-demuestra')">
+          <span>Punto 1. Qué demuestra esta aplicación de ejemplo</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('que-demuestra')">
+          <p>
+            La Bitácora Angular del Comodoro no es solo un conjunto de páginas:
+            es una pequeña aplicación completa que demuestra:
+          </p>
+  
+          <ul>
+            <li>Navegación entre secciones mediante el enrutador de Angular.</li>
+            <li>Uso de componentes standalone para cada apartado del tutorial.</li>
+            <li>Estructura clara de proyecto generada con Angular CLI.</li>
+            <li>
+              Control del DOM a través de plantillas y directivas
+              (índices, acordeones, textos que se expanden y se colapsan).
+            </li>
+            <li>Estilos compartidos que dan unidad visual a toda la aplicación.</li>
+          </ul>
+  
+          <p class="aside">
+            El resultado es una SPA sencilla, pero suficiente para mostrar cómo
+            Angular organiza una aplicación real y no solo un “Hola Mundo”.
+          </p>
+        </div>
+      </li>
+  
+      <!-- BLOQUE 2: Cómo está construida técnicamente -->
+      <li>
+        <button type="button" (click)="toggleApartado('como-construida')">
+          <span>Punto 2. Cómo está construida técnicamente la Bitácora</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('como-construida')">
+          <p>
+            Técnicamente, la aplicación se apoya en la estructura estándar de
+            Angular generada con <code>ng new</code>, combinada con comandos
+            posteriores de Angular CLI:
+          </p>
+  
+          <ul>
+            <li><code>ng new tutorial-app</code> para crear el proyecto base.</li>
+            <li>
+              <code>ng generate component secciones/&lt;nombre&gt; --standalone</code>
+              para crear Portada, Justificación, Instalación, Primeros pasos,
+              Utilización, Funcionamiento interno y esta Aplicación de ejemplo.
+            </li>
+            <li>
+              Archivo <code>app.html</code> como plantilla principal, con el
+              encabezado del tutorial, el menú de navegación y el
+              <code>&lt;router-outlet&gt;</code>.
+            </li>
+            <li>
+              Archivo <code>app.routes.ts</code> como mapa de rutas que decide qué
+              componente se carga en cada URL.
+            </li>
+            <li>
+              Archivos <code>.html</code> y <code>.css</code> propios por sección,
+              para separar contenido y estilo manteniendo una narrativa común.
+            </li>
+          </ul>
+  
+          <p class="aside">
+            Cada una de estas piezas forma parte de la aplicación final, y todas
+            se han ido construyendo paso a paso en el propio tutorial.
+          </p>
+        </div>
+      </li>
+  
+      <!-- BLOQUE 3: Relación con los requisitos de la actividad -->
+      <li>
+        <button type="button" (click)="toggleApartado('requisitos')">
+          <span>Punto 3. Cómo cumple esta aplicación los requisitos de la actividad</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('requisitos')">
+          <p>
+            La aplicación de ejemplo se ha diseñado expresamente para cubrir los
+            puntos solicitados en la actividad:
+          </p>
+  
+          <ul>
+            <li>
+              <strong>Portada / Introducción:</strong> página inicial con título,
+              marco del tutorial y acceso al resto de secciones.
+            </li>
+            <li>
+              <strong>Justificación del framework:</strong> sección dedicada a
+              explicar por qué Angular y qué aporta frente a otras opciones.
+            </li>
+            <li>
+              <strong>Instalación e inicio:</strong> pasos detallados para preparar
+              Node, Angular CLI y el primer proyecto funcional.
+            </li>
+            <li>
+              <strong>Primeros pasos, utilización y funcionamiento interno:</strong>
+              secciones prácticas que explican estructura, rutas, componentes y
+              ciclo de desarrollo.
+            </li>
+            <li>
+              <strong>Aplicación de ejemplo:</strong> este propio tutorial, que
+              integra todas las piezas en una SPA navegable y coherente.
+            </li>
+          </ul>
+  
+          <p class="aside">
+            De esta forma, el profesor puede revisar tanto el código como el
+            comportamiento en el navegador y comprobar que el framework se ha
+            utilizado de forma real, no solo teórica.
+          </p>
+        </div>
+      </li>
+  
+      <!-- BLOQUE 4: Posibles ampliaciones futuras -->
+      <li>
+        <button type="button" (click)="toggleApartado('ampliaciones')">
+          <span>Punto 4. Posibles ampliaciones de la aplicación de ejemplo</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('ampliaciones')">
+          <p>
+            Aunque la aplicación cumple los requisitos de la actividad, deja
+            espacio para ampliaciones futuras si se quiere seguir practicando:
+          </p>
+  
+          <ul>
+            <li>
+              Añadir más secciones con ejemplos de componentes, servicios o
+              peticiones HTTP simuladas.
+            </li>
+            <li>
+              Incluir una zona de ejercicios donde el alumno pueda probar código
+              propio siguiendo la misma estructura.
+            </li>
+            <li>
+              Separar la hoja de estilos en varios ficheros para modularizar
+              todavía más la presentación.
+            </li>
+            <li>
+              Convertir el tutorial en una pequeña “academia” de Angular,
+              añadiendo nuevas rutas y contenidos prácticos.
+            </li>
+          </ul>
+  
+          <p class="aside">
+            Lo importante es que la base ya está: una aplicación Angular real,
+            navegable y coherente que sirve como ejemplo de uso del framework.
+          </p>
+        </div>
+      </li>
+  
+    </ul>
+  </section>
+  

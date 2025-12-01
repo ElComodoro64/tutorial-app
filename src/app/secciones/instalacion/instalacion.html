@@ -1,0 +1,365 @@
+<section class="seccion">
+    <h2>Instalación y preparación del entorno de trabajo</h2>
+  
+    <figure class="imagen-lateral">
+      <img src="img/puerto.jpg" alt="Puerto al amanecer">
+      <figcaption>“Antes de zarpar, el barco se prepara en puerto.”</figcaption>
+    </figure>
+  
+    <p>
+      Antes de escribir la primera línea de código en Angular, toca revisar el
+      puerto: comprobar que el sistema está listo, instalar las herramientas
+      necesarias y validar que todo responde como debe. En esta sección se detalla,
+      paso a paso, cómo preparar el entorno de desarrollo para que el viaje no
+      empiece con un naufragio por una versión mal instalada.
+    </p>
+    
+    <p>
+      El objetivo es que cualquier persona, aunque no haya trabajado nunca con
+      Angular, pueda seguir estas instrucciones y terminar con un proyecto
+      funcionando en su navegador, listo para empezar el tutorial.
+    </p>
+    
+    <p>
+      A diferencia de otros frameworks, Angular no requiere una base de datos para
+      comenzar a trabajar. Es una tecnología que funciona en el navegador y solo
+      necesita acceder a datos si la aplicación lo demanda, normalmente mediante
+      APIs o servicios externos. Esto simplifica mucho los preparativos iniciales.
+    </p>
+    
+    <p>
+      Además, es recomendable disponer de un editor moderno como 
+      <strong>Visual Studio Code</strong> y un navegador actualizado (Chrome, Edge o
+      Firefox). Aunque no son requisitos estrictos, sí facilitan el desarrollo,
+      sobre todo en las primeras prácticas.
+    </p>
+    
+  
+    <h3 class="indice-titulo">Índice de la sección</h3>
+  
+    <ul class="acordeon">
+  
+      <!-- 1. Requisitos previos del sistema -->
+      <li>
+        <button type="button" (click)="toggleApartado('requisitos')">
+          <span>Requisitos previos del sistema</span>
+          <span class="acordeon-icono">
+            @if (isOpen('requisitos')) { − } @else { + }
+          </span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('requisitos')">
+          <p>
+            Para trabajar con Angular se recomienda utilizar un sistema operativo
+            moderno (Windows 10/11, alguna distribución Linux reciente o macOS
+            actualizado) con permisos para instalar software. Es importante contar
+            con conexión a Internet, al menos durante la instalación inicial, ya
+            que se descargarán dependencias desde los repositorios oficiales.
+          </p>
+  
+          <p>
+            También es conveniente disponer de un editor de código adecuado. En
+            este tutorial se utilizará <strong>Visual Studio Code</strong>, aunque
+            podrían emplearse otros editores siempre que soporten TypeScript y
+            dispongan de resaltado de sintaxis.
+          </p>
+  
+          <p class="aside">
+            Consejo práctico: tener algo de espacio libre en disco y evitar
+            instalaciones “justas” ayuda a que las dependencias se descarguen sin
+            problemas.
+          </p>
+  
+          <!-- Bibliografía:
+            Angular.dev – Installation / System requirements
+            Visual Studio Code – Docs
+          -->
+        </div>
+      </li>
+  
+      <!-- 2. Instalación de Node.js y comprobaciones básicas -->
+      <li>
+        <button type="button" (click)="toggleApartado('node')">
+          <span>Instalación de Node.js y comprobaciones básicas</span>
+          <span class="acordeon-icono">
+            @if (isOpen('node')) { − } @else { + }
+          </span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('node')">
+          <p>
+            Angular se apoya en <strong>Node.js</strong> y en el gestor de paquetes
+            <strong>npm</strong>. El primer paso del proceso fue ir a la página oficial
+            de Node.js (<code>https://nodejs.org</code>), descargar la versión LTS para
+            Windows y ejecutar el instalador con las opciones por defecto.
+          </p>
+  
+          <p>
+            Una vez finalizada la instalación, abrimos una consola (por ejemplo,
+            <strong>PowerShell</strong> o <strong>CMD</strong>) y probamos los comandos:
+          </p>
+  
+          <ul>
+            <li>node -v</li>
+            <li>npm -v</li>
+          </ul> 
+  
+          <p>
+            En este punto apareció el primer problema típico: en lugar de mostrar la
+            versión, la consola respondió con un mensaje del estilo
+            <em>“node no se reconoce como un comando interno o externo”</em>. Esto indica
+            que Node.js está instalado, pero la ruta a su carpeta no está incluida en la
+            variable de entorno <strong>PATH</strong>.
+          </p>
+          <figure class="captura">
+            <img src="img/Error1.png" alt="Error: node no se reconoce como comando">
+            <figcaption>
+              Error inicial al ejecutar <code>node -v</code> y <code>npm -v</code>.
+              Node estaba instalado, pero Windows no encontraba la ruta.
+            </figcaption>
+          </figure>
+          <p>
+            Para corregirlo, desde Windows fuimos a
+            <strong>Configuración avanzada del sistema &gt; Variables de entorno</strong>,
+            y en la sección <em>Variables del sistema</em> editamos la variable
+            <strong>Path</strong> para añadir la ruta donde se instaló Node.js, por
+            ejemplo:
+          </p>
+  
+          <pre><code>C:\Program Files\nodejs\</code></pre>
+  
+          <p>
+            Tras guardar los cambios y abrir una consola nueva, volvimos a ejecutar:
+          </p>
+            <ul>
+              <li>node -v</li>
+              <li>npm -v</li>
+            </ul> 
+          <p>
+            Esta vez sí apareció el número de versión de Node.js y de npm, confirmando
+            que el entorno estaba correctamente configurado y listo para instalar Angular
+            CLI. Este detalle es importante porque
+            refleja un problema real que es fácil que se repita en otros equipos.
+          </p>
+  
+          <p class="aside">
+            Documentar el fallo y la solución no es un lujo: es parte del mapa para quien
+            navegue después por las mismas aguas.
+          </p>
+  
+          <!-- Bibliografía:
+            Node.js – Official Downloads & Docs (https://nodejs.org)
+            Microsoft – Configuración de variables de entorno en Windows
+            Angular.dev – Installation prerequisites
+          -->
+    
+        </div>
+      </li>
+  
+      <!-- 3. Instalación de Angular CLI -->
+      <li>
+        <button type="button" (click)="toggleApartado('cli')">
+          <span>Instalación de Angular CLI</span>
+          <span class="acordeon-icono">
+            @if (isOpen('cli')) { − } @else { + }
+          </span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('cli')">
+          <p>
+            Con Node.js funcionando correctamente, el siguiente paso fue instalar la
+            herramienta oficial que utiliza Angular para crear proyectos, generar
+            componentes y ejecutar servidores de desarrollo: 
+            <strong>Angular CLI</strong>.
+          </p>
+  
+          <p>La instalación se hace desde la consola usando <em>npm</em>:</p>
+  
+          <ul>
+            <li>npm install -g @angular/cli</li>
+          </ul>
+  
+          <p>
+            Este comando instala Angular CLI de forma global en el sistema. Tras la 
+            instalación, comprobamos que el sistema reconocía el comando <code>ng</code> 
+            ejecutando lo siguiente:
+          </p>
+  
+          <ul>
+            <li>ng version</li>
+          </ul>
+  
+          <figure class="captura">
+            <img src="img/Cli1.png" alt="Salida del comando ng version en consola">
+            <figcaption>
+              Resultado correcto del comando <code>ng version</code>: Angular CLI
+              instalado y detectado por el sistema.
+            </figcaption>
+          </figure>
+  
+          <p>
+            La salida muestra la versión instalada de Angular CLI, además de las
+            versiones detectadas de Node.js y npm. Ver esa información confirma que el
+            entorno ya está preparado para crear nuestro proyecto Angular.
+          </p>
+  
+          <p class="aside">
+            Con Angular CLI a bordo, ya no navegamos a remo: ahora tenemos todas las 
+            herramientas del barco listas para construir la aplicación.
+          </p>
+  
+        </div>
+      </li>
+  
+      <!-- 4. Creación del primer proyecto -->
+      <li>
+        <button type="button" (click)="toggleApartado('proyecto')">
+          <span>Creación del primer proyecto Angular</span>
+          <span class="acordeon-icono">
+            @if (isOpen('proyecto')) { − } @else { + }
+          </span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('proyecto')">
+          <p>
+            Con Angular CLI instalado, el siguiente paso fue crear el primer proyecto
+            del tutorial. Para ello, abrimos una consola en la carpeta donde queremos
+            trabajar (en nuestro caso, la carpeta de la asignatura) y ejecutamos:
+          </p>
+  
+          <ul>
+            <li>ng new tutorial-app</li>
+          </ul>
+  
+          <p>
+            El asistente de Angular CLI hace varias preguntas antes de generar la
+            estructura del proyecto. En nuestra ejecución respondimos:
+          </p>
+  
+          <ul>
+            <li>
+              <strong>Would you like to share pseudonymous usage data…?</strong> –
+              <em>No</em>, para evitar enviar métricas.
+            </li>
+            <li>
+              <strong>Which stylesheet system would you like to use?</strong> –
+              <em>CSS</em>, para mantener la coherencia con la Bitácora original.
+            </li>
+            <li>
+              <strong>Do you want to enable Server-Side Rendering (SSR)…?</strong> –
+              <em>Yes</em>, aceptando la configuración recomendada.
+            </li>
+            <li>
+              <strong>Which AI tools do you want to configure…?</strong> –
+              <em>None</em>, ya que no son necesarias para este tutorial.
+            </li>
+          </ul>
+  
+          <figure class="captura">
+            <img src="img/Cli2.png" alt="Ejecución del comando ng new tutorial-app">
+            <figcaption>
+              Asistente de <code>ng new tutorial-app</code> mostrando las preguntas
+              de configuración antes de crear el proyecto.
+            </figcaption>
+          </figure>
+  
+          <p>
+            Tras confirmar las opciones, Angular CLI generó la carpeta
+            <code>tutorial-app</code> con toda la estructura inicial: código fuente,
+            configuración, scripts de ejecución y pruebas. A continuación, abrimos
+            esa carpeta con Visual Studio Code para poder trabajar cómodamente sobre
+            el proyecto.
+          </p>
+  
+          <p class="aside">
+            A partir de aquí ya no hablamos de teoría: el barco existe, tiene nombre
+            y carpeta propia. El resto del tutorial se construirá sobre este proyecto.
+          </p>
+  
+        </div>
+      </li>
+  
+      <!-- 5. Ejecución y prueba en el navegador -->
+      <li>
+        <button type="button" (click)="toggleApartado('ejecucion')">
+          <span>Ejecución y prueba en el navegador</span>
+          <span class="acordeon-icono">
+            @if (isOpen('ejecucion')) { − } @else { + }
+          </span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('ejecucion')">
+          <p>
+            Una vez creado el proyecto <code>tutorial-app</code>, el siguiente paso fue
+            comprobar que arrancaba correctamente en el navegador. Para ello, desde la
+            carpeta del proyecto ejecutamos:
+          </p>
+  
+          <ul>
+            <li>ng serve</li>
+          </ul>
+  
+          <p>
+            Angular CLI compiló la aplicación y levantó el servidor de desarrollo. En la
+            consola aparecieron los bundles generados y, al final, el mensaje indicando
+            la dirección local donde se estaba sirviendo la aplicación:
+          </p>
+  
+          <figure class="captura">
+            <img src="img/ng-server.png" alt="Salida del comando ng serve en la consola">
+            <figcaption>
+              Ejecución de <code>ng serve</code>: servidor de desarrollo en marcha y
+              aplicación disponible en <code>http://localhost:4200/</code>.
+            </figcaption>
+          </figure>
+  
+          <p>
+            En este punto surgió una duda habitual: la consola parecía “bloqueada”, no
+            volvía el prompt y daba la sensación de que el comando no había terminado.
+            En realidad, esto es el comportamiento normal: el servidor queda
+            <strong>en ejecución constante</strong>, escuchando cambios en los archivos
+            del proyecto para recompilar y recargar la página automáticamente.
+          </p>
+  
+          <p>
+            Mientras <code>ng serve</code> está activo:
+          </p>
+  
+          <ul>
+            <li>Podemos abrir <code>http://localhost:4200/</code> en el navegador.</li>
+            <li>Cualquier cambio en los componentes, plantillas o estilos se refleja
+                al guardar, sin volver a ejecutar el comando.</li>
+            <li>La consola muestra mensajes de recompilación cuando detecta cambios.</li>
+          </ul>
+  
+          <p>
+            Para detener el servidor y recuperar el prompt, es necesario usar la
+            combinación de teclas:
+          </p>
+  
+          <ul>
+            <li><strong>Ctrl + C</strong> en la consola donde se ejecutó <code>ng serve</code>.</li>
+          </ul>
+  
+          <p>
+            Después de pulsar <strong>Ctrl + C</strong>, la consola vuelve al estado
+            normal y permite escribir nuevos comandos. Es recomendable detener y
+            volver a arrancar el servidor cuando se realizan cambios estructurales
+            importantes, como instalar nuevas dependencias con <code>npm</code> o
+            reorganizar archivos. Para cambios sencillos en HTML, CSS, TypeScript o
+            imágenes dentro de <code>public/img</code>, suele bastar con guardar y
+            recargar el navegador.
+          </p>
+  
+          <p class="aside">
+            En resumen: si el prompt “no vuelve”, no es un fallo; significa que el
+            barco está navegando. Solo hay que usar <strong>Ctrl + C</strong> para
+            volver a puerto cuando queramos lanzar nuevos comandos.
+          </p>
+  
+        </div>
+      </li>
+  
+    </ul>
+  </section>
+  

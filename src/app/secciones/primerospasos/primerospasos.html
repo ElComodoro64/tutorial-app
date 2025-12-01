@@ -1,0 +1,272 @@
+<section class="seccion">
+    <h2>Primeros pasos: nuestra primera página en Angular</h2>
+  
+    <figure class="imagen-lateral">
+      <img src="img/olas.jpg" alt="Olas suaves en la costa">
+      <figcaption>“El primer paso no es perfecto, pero es el que te pone en marcha.”</figcaption>
+    </figure>
+  
+    <p>
+      Tras crear el proyecto con Angular CLI, el siguiente objetivo es conseguir que
+      la aplicación muestre una página propia en lugar del ejemplo por defecto. Para
+      ello, se genera una primera sección, se limpia la plantilla inicial y se
+      configura el enrutado para que esa página sea la que se vea nada más entrar.
+    </p>
+  
+    <p>
+      Los pasos que se describen a continuación están pensados para orientar a quien
+      da sus primeros pasos con Angular, destacando no solo qué hay que hacer, sino
+      también dónde suelen aparecer los errores más habituales.
+    </p>
+  
+    <h3 class="indice-titulo">Índice de la sección</h3>
+  
+    <ul class="acordeon">
+  
+      <!-- PASO 1: Crear la primera página (Justificación) -->
+      <li>
+        <button type="button" (click)="toggleApartado('paso1')">
+          <span>Paso 1. Crear la primera página con Angular CLI (Justificación)</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('paso1')">
+          <p>
+            Partiendo de un proyecto recién creado con <code>ng new</code>, el primer
+            paso consiste en generar una página propia que sirva como punto de partida.
+            En este tutorial se utiliza una sección llamada <strong>Justificación</strong>.
+          </p>
+  
+          <p>Desde la carpeta raíz del proyecto se ejecuta:</p>
+  
+          <pre><code>cd tutorial-app
+  ng generate component secciones/justificacion --standalone</code></pre>
+  
+          <p>
+            Este comando crea, dentro de <code>src/app/secciones/justificacion/</code>,
+            los archivos necesarios para la nueva sección:
+          </p>
+  
+          <ul>
+            <li><code>justificacion.ts</code>: definición del componente standalone.</li>
+            <li><code>justificacion.html</code>: plantilla HTML de la página.</li>
+            <li><code>justificacion.css</code>: estilos asociados a esta sección.</li>
+          </ul>
+  
+          <p>
+            Para comprobar que la página responde, se puede escribir un mensaje simple
+            en <code>justificacion.html</code>, que actuará como “Hola Mundo” inicial:
+          </p>
+  
+          <pre><code>&lt;h2&gt;Justificación del tutorial&lt;/h2&gt;
+  &lt;p&gt;Esta es la primera página creada con Angular en este proyecto.&lt;/p&gt;</code></pre>
+  
+          <p class="aside">
+            Si el proyecto aún no está abierto en Visual Studio Code, puede hacerse
+            desde la consola con <code>code .</code>, siempre que el editor esté
+            instalado en el sistema.
+          </p>
+        </div>
+      </li>
+  
+      <!-- PASO 2: Limpiar la plantilla inicial en app.html -->
+      <li>
+        <button type="button" (click)="toggleApartado('paso2')">
+          <span>Paso 2. Limpiar el contenido por defecto de Angular en app.html</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('paso2')">
+          <p>
+            Cuando se ejecuta un proyecto recién creado, Angular muestra una página de
+            ejemplo con logotipos y enlaces que no forman parte del tutorial. Antes de
+            avanzar, conviene sustituir esta plantilla por una estructura propia más
+            sencilla.
+          </p>
+  
+          <p>
+            Para ello, se edita el archivo
+            <code>src/app/app.html</code> y se mantiene únicamente el esqueleto que
+            interesa. Un ejemplo básico podría ser:
+          </p>
+  
+          <pre><code>&lt;header&gt;
+    &lt;h1&gt;Bitácora Angular del Comodoro&lt;/h1&gt;
+    &lt;!-- Aquí irá el menú de navegación --&gt;
+  &lt;/header&gt;
+  
+  &lt;main&gt;
+    &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  &lt;/main&gt;</code></pre>
+  
+          <p>
+            El resto del contenido generado por Angular (logotipos, tarjetas de ejemplo,
+            enlaces, etc.) puede eliminarse sin problema. Lo importante es conservar
+            el elemento <code>&lt;router-outlet&gt;</code>, que es donde se cargarán
+            las distintas secciones del tutorial.
+          </p>
+  
+          <p class="aside">
+            Si tras limpiar la plantilla aparece una pantalla en blanco, suele deberse
+            a que se ha eliminado el <code>router-outlet</code> o a que aún no hay
+            ninguna ruta configurada para mostrar una sección concreta.
+          </p>
+        </div>
+      </li>
+  
+      <!-- PASO 3: Configurar las rutas para mostrar Justificación al inicio -->
+      <li>
+        <button type="button" (click)="toggleApartado('paso3')">
+          <span>Paso 3. Configurar las rutas para mostrar la página Justificación al inicio</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('paso3')">
+          <p>
+            Para que la sección Justificación se muestre al entrar en
+            <code>http://localhost:4200/</code>, es necesario configurarla como ruta
+            principal en el enrutador de la aplicación.
+          </p>
+  
+          <p>
+            En el archivo <code>src/app/app.routes.ts</code> se importa la sección
+            Justificación y se define la ruta por defecto (<code>path: ''</code>):
+          </p>
+  
+          <pre><code>import &#123; Routes &#125; from '@angular/router';
+  import &#123; Justificacion &#125; from './secciones/justificacion/justificacion';
+  
+  export const routes: Routes = [
+    &#123;
+      path: '',
+      component: Justificacion
+    &#125;
+  ];</code></pre>
+  
+          <p>
+            El valor <code>path: ''</code> indica que esta será la página que se
+            mostrará cuando el usuario acceda a la raíz de la aplicación, sin ningún
+            segmento adicional en la URL.
+          </p>
+  
+          <p class="aside">
+            Si existe otra ruta con <code>path: ''</code> apuntando a un componente
+            distinto, esa ruta será la que tome el control. Solo debe haber una ruta
+            de inicio clara.
+          </p>
+        </div>
+      </li>
+  
+      <!-- PASO 4: Arrancar la aplicación y comprobar el "Hola Mundo" -->
+      <li>
+        <button type="button" (click)="toggleApartado('paso4')">
+          <span>Paso 4. Arrancar la aplicación y comprobar el “Hola Mundo”</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('paso4')">
+          <p>
+            Una vez creada la sección y configurada la ruta, se puede iniciar el
+            servidor de desarrollo para comprobar el resultado en el navegador.
+            Desde la carpeta del proyecto se ejecuta:
+          </p>
+  
+          <pre><code>ng serve</code></pre>
+  
+          <p>
+            Cuando la compilación finaliza, Angular indica la dirección donde está
+            disponible la aplicación, normalmente:
+          </p>
+  
+          <pre><code>http://localhost:4200/</code></pre>
+  
+          <p>
+            Al acceder a esa URL, la página debería mostrar la cabecera definida en
+            <code>app.html</code> y, en la zona central, el contenido de
+            <code>justificacion.html</code> con el “Hola Mundo” de prueba.
+          </p>
+  
+          <p>
+            Mientras el servidor está en marcha, la consola no recupera el prompt,
+            ya que el proceso permanece en ejecución para recompilar ante cualquier
+            cambio. Para detenerlo y volver al estado normal de la consola, se
+            utiliza:
+          </p>
+  
+          <pre><code>Ctrl + C</code></pre>
+  
+          <p class="aside">
+            Si la página sigue mostrando la plantilla de ejemplo de Angular, conviene
+            revisar que <code>app.html</code> ha sido actualizado y que
+            <code>app.routes.ts</code> apunta realmente a la sección Justificación
+            como ruta inicial.
+          </p>
+        </div>
+      </li>
+  
+      <!-- PASO 5: Cambiar la página inicial a Portada y preparar el menú -->
+      <li>
+        <button type="button" (click)="toggleApartado('paso5')">
+          <span>Paso 5. Cambiar la página inicial a Portada y dejar Justificación como sección de contenido</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('paso5')">
+          <p>
+            Aunque la primera página creada haya sido Justificación, la portada del
+            tutorial debe ser la encargada de dar la bienvenida al usuario. Para ello
+            se genera una nueva sección Portada y se ajustan las rutas para que sea
+            la página inicial.
+          </p>
+  
+          <p>Desde la carpeta raíz del proyecto se ejecuta:</p>
+  
+          <pre><code>ng generate component secciones/portada --standalone</code></pre>
+  
+          <p>
+            En <code>src/app/secciones/portada/portada.html</code> se puede definir un
+            contenido sencillo de inicio, por ejemplo:
+          </p>
+  
+          <pre><code>&lt;h2&gt;Portada del tutorial Angular&lt;/h2&gt;
+  &lt;p&gt;Bienvenido a la Bitácora del Comodoro en Angular.&lt;/p&gt;</code></pre>
+  
+          <p>
+            A continuación, se actualiza el archivo
+            <code>src/app/app.routes.ts</code> para que la ruta de inicio apunte a
+            Portada y Justificación quede como una sección accesible desde el menú:
+          </p>
+  
+          <pre><code>import &#123; Routes &#125; from '@angular/router';
+  import &#123; Portada &#125; from './secciones/portada/portada';
+  import &#123; Justificacion &#125; from './secciones/justificacion/justificacion';
+  
+  export const routes: Routes = [
+    &#123;
+      path: '',
+      component: Portada
+    &#125;,
+    &#123;
+      path: 'justificacion',
+      component: Justificacion
+    &#125;
+  ];</code></pre>
+  
+          <p>
+            Más adelante, el menú definido en <code>app.html</code> podrá incluir
+            enlaces a estas rutas mediante <code>routerLink</code>, de forma que el
+            usuario pueda navegar entre la Portada, la Justificación y el resto de
+            secciones del tutorial.
+          </p>
+  
+          <p class="aside">
+            Con este cambio, la aplicación deja de ser una sola pantalla fija y
+            empieza a comportarse como un pequeño cuaderno de navegación, con la
+            portada al frente y el resto de secciones ordenadas detrás.
+          </p>
+        </div>
+      </li>
+  
+    </ul>
+  </section>
+  

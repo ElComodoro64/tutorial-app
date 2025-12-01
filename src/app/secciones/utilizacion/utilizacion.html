@@ -1,0 +1,209 @@
+<section class="seccion">
+    <h2>Utilización del framework Angular</h2>
+  
+    <figure class="imagen-lateral">
+      <img src="img/ancla.jpg" alt="Ancla en la orilla">
+      <figcaption>“La base de una buena travesía es saber manejar el barco.”</figcaption>
+    </figure>
+  
+    <p>
+      Una vez creada la estructura inicial del tutorial (Portada, Justificación y el
+      enrutado básico), llega el momento de trabajar con Angular de manera práctica.
+      En este apartado se explica cómo crear nuevas secciones, cómo hacer que aparezcan
+      en pantalla y cómo visualizar los cambios mientras se desarrolla la aplicación.
+    </p>
+  
+    <p>
+      Este capítulo funciona como guía de trabajo diario: los pasos que seguirás cada
+      vez que quieras añadir una nueva parte al tutorial o modificar una existente.
+    </p>
+  
+    <h3 class="indice-titulo">Índice de la sección</h3>
+  
+    <ul class="acordeon">
+  
+      <!-- PASO 1 - Crear una nueva sección usando Angular CLI -->
+      <li>
+        <button type="button" (click)="toggleApartado('crear')">
+          <span>Paso 1. Crear una nueva sección con Angular CLI</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('crear')">
+          <p>
+            La creación de una nueva sección es uno de los comandos más frecuentes en
+            el desarrollo con Angular. Cada sección se genera con Angular CLI, lo que
+            garantiza que el proyecto siga una estructura ordenada.
+          </p>
+  
+          <p>El patrón general es:</p>
+  
+          <pre><code>ng generate component secciones/nombre --standalone</code></pre>
+  
+          <p>Por ejemplo, para crear una sección llamada <strong>instalacion</strong>:</p>
+  
+          <pre><code>ng generate component secciones/instalacion --standalone</code></pre>
+  
+          <p>
+            Este comando crea la carpeta correspondiente dentro de
+            <code>src/app/secciones/</code> con los archivos:
+          </p>
+  
+          <ul>
+            <li><code>instalacion.ts</code></li>
+            <li><code>instalacion.html</code></li>
+            <li><code>instalacion.css</code></li>
+          </ul>
+  
+          <p class="aside">
+            Consejo del Comodoro: si al generar no aparece la carpeta donde esperabas,
+            revisa que estás dentro de la carpeta raíz del proyecto (la que contiene
+            <code>package.json</code>).
+          </p>
+        </div>
+      </li>
+  
+      <!-- PASO 2 - Conectar la nueva sección al enrutador -->
+      <li>
+        <button type="button" (click)="toggleApartado('routes')">
+          <span>Paso 2. Conectar la nueva sección al enrutador</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('routes')">
+          <p>
+            Crear la sección no es suficiente: Angular necesita saber cuándo debe
+            mostrarla. Para ello, se añade una nueva entrada en el archivo
+            <code>src/app/app.routes.ts</code>.
+          </p>
+  
+          <p>El patrón general para añadir una ruta es:</p>
+  
+          <pre><code>import &#123; NombreSeccion &#125; from './secciones/nombre/nombre';
+  
+  export const routes = [
+    &#123;
+      path: 'nombre',
+      component: NombreSeccion
+    &#125;
+  ];</code></pre>
+  
+          <p>
+            De esta forma, la sección será accesible desde la URL:
+            <code>http://localhost:4200/nombre</code>
+          </p>
+  
+          <p class="aside">
+            Si accedes a una ruta y ves pantalla en blanco, revisa que el import
+            coincide exactamente con el nombre del archivo y que la ruta está dentro
+            del array <code>routes</code>.
+          </p>
+        </div>
+      </li>
+  
+      <!-- PASO 3 - Añadir la sección al menú de navegación -->
+      <li>
+        <button type="button" (click)="toggleApartado('menu')">
+          <span>Paso 3. Añadir la sección al menú de navegación</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('menu')">
+          <p>
+            Para que el usuario pueda navegar entre secciones, se añade una entrada al
+            menú ubicado en <code>src/app/app.html</code>.
+          </p>
+  
+          <p>Una entrada típica del menú es:</p>
+  
+          <pre><code>&lt;a routerLink="instalacion"&gt;Instalación&lt;/a&gt;</code></pre>
+  
+          <p>
+            Cada enlace usa <code>routerLink</code> para indicarle a Angular la ruta
+            que debe cargar dentro del <code>&lt;router-outlet&gt;</code>.
+          </p>
+  
+          <p class="aside">
+            Si al pulsar un enlace no cambia el contenido, revisa que el atributo
+            <code>routerLink</code> coincide con el <code>path</code> definido en
+            <code>app.routes.ts</code>.
+          </p>
+        </div>
+      </li>
+  
+      <!-- PASO 4 - Visualizar los cambios en el navegador (ng serve) -->
+      <li>
+        <button type="button" (click)="toggleApartado('serve')">
+          <span>Paso 4. Visualizar los cambios en el navegador</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('serve')">
+          <p>
+            El comando fundamental para ver la aplicación en funcionamiento es:
+          </p>
+  
+          <pre><code>ng serve</code></pre>
+  
+          <p>
+            Este comando levanta un servidor de desarrollo que recompila la aplicación
+            automáticamente cada vez que se guarda un archivo.
+          </p>
+  
+          <p>
+            La aplicación queda disponible en:
+          </p>
+  
+          <pre><code>http://localhost:4200/</code></pre>
+  
+          <p>
+            Es normal que el prompt de la consola quede ocupado mientras el servidor
+            está en marcha. Para detenerlo:
+          </p>
+  
+          <pre><code>Ctrl + C</code></pre>
+  
+          <p class="aside">
+            Si realizas cambios en archivos del sistema de rutas o en configuraciones
+            del proyecto, puede ser necesario detener y volver a ejecutar
+            <code>ng serve</code>.
+          </p>
+        </div>
+      </li>
+  
+      <!-- PASO 5 - Comandos esenciales del día a día -->
+      <li>
+        <button type="button" (click)="toggleApartado('comandos')">
+          <span>Paso 5. Comandos esenciales de Angular CLI</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('comandos')">
+          <p>
+            Angular CLI ofrece un conjunto de comandos que facilitan el desarrollo.
+            Los más utilizados en proyectos pequeños y tutoriales son:
+          </p>
+  
+          <ul>
+            <li><strong>ng serve</strong>: ejecuta el servidor de desarrollo.</li>
+            <li><strong>ng generate ...</strong>: crea secciones, servicios y otros elementos.</li>
+            <li><strong>ng build</strong>: genera la versión optimizada para producción.</li>
+            <li><strong>ng g c</strong>: abreviatura de <em>generate component</em>.</li>
+            <li><strong>ng version</strong>: muestra las versiones de Angular y Node.</li>
+          </ul>
+  
+          <p>
+            Cada uno de estos comandos forma parte del flujo habitual de trabajo:
+            generar, editar, ejecutar y verificar.
+          </p>
+  
+          <p class="aside">
+            Conocer estos comandos es como dominar las cuerdas del barco: permiten
+            ajustar el rumbo sin perder tiempo en maniobras innecesarias.
+          </p>
+        </div>
+      </li>
+  
+    </ul>
+  </section>
+  

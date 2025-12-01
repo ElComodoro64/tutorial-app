@@ -1,0 +1,177 @@
+<section class="seccion">
+    <h2>Recursos y materiales del tutorial</h2>
+  
+    <figure class="imagen-lateral">
+      <img src="img/bitacora.jpg" alt="Bitácora abierta con brújula y mapa">
+      <figcaption>“Toda buena travesía deja anotadas sus fuentes y herramientas.”</figcaption>
+    </figure>
+  
+    <p>
+      Esta sección recopila los recursos utilizados para elaborar el tutorial:
+      documentación oficial consultada, herramientas empleadas y materiales
+      propios que acompañan a la entrega (código fuente y páginas HTML).
+    </p>
+  
+    <p>
+      El objetivo es dejar claro de dónde se ha obtenido la información y qué
+      elementos acompañan al trabajo, pensando tanto en la corrección como en
+      posibles revisiones posteriores.
+    </p>
+  
+    <h3 class="indice-titulo">Índice de la sección</h3>
+  
+    <ul class="acordeon">
+  
+      <!-- 1. Documentación oficial consultada -->
+      <li>
+        <button type="button" (click)="toggleApartado('docs-oficiales')">
+          <span>Punto 1. Documentación oficial consultada</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('docs-oficiales')">
+          <p>
+            Para asegurar que el contenido del tutorial es correcto y actualizado
+            se ha recurrido principalmente a documentación oficial:
+          </p>
+  
+          <ul>
+            <li>
+              Documentación de Angular: descripción general del framework,
+              guía de inicio, uso de Angular CLI y enrutador.
+            </li>
+            <li>
+              Documentación de Node.js y npm: instalación, comprobación de
+              versiones y variables de entorno.
+            </li>
+            <li>
+              Referencias a TypeScript orientadas a entender la estructura de los
+              componentes y los archivos <code>.ts</code>.
+            </li>
+          </ul>
+  
+          <p class="aside">
+            Cada explicación técnica del tutorial se ha contrastado con estas
+            fuentes para evitar errores y facilitar futuras ampliaciones.
+          </p>
+        </div>
+      </li>
+  
+      <!-- 2. Herramientas utilizadas en el desarrollo -->
+      <li>
+        <button type="button" (click)="toggleApartado('herramientas')">
+          <span>Punto 2. Herramientas de desarrollo utilizadas</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('herramientas')">
+          <p>
+            El desarrollo del tutorial y de la aplicación Angular se ha realizado
+            con un conjunto de herramientas concretas:
+          </p>
+  
+          <ul>
+            <li>
+              <strong>Visual Studio Code</strong> como editor principal de código.
+            </li>
+            <li>
+              <strong>Terminal de comandos</strong> para ejecutar
+              <code>node</code>, <code>npm</code> y los comandos de Angular CLI
+              (<code>ng new</code>, <code>ng serve</code>, <code>ng generate</code>).
+            </li>
+            <li>
+              <strong>Navegador web</strong> (modo desarrollador) para visualizar
+              la aplicación y revisar la consola ante errores.
+            </li>
+            <li>
+              <strong>Sistema de archivos local</strong> para organizar capturas
+              de pantalla, imágenes y el propio proyecto.
+            </li>
+          </ul>
+  
+          <p class="aside">
+            Estas herramientas son fácilmente accesibles para cualquier alumno,
+            por lo que el tutorial puede reproducirse en otros equipos sin
+            necesidad de software específico adicional.
+          </p>
+        </div>
+      </li>
+  
+      <!-- 3. Materiales propios del alumno -->
+      <li>
+        <button type="button" (click)="toggleApartado('materiales')">
+          <span>Punto 3. Materiales propios generados en la práctica</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('materiales')">
+          <p>
+            Además de la documentación consultada, la práctica incluye materiales
+            propios que forman parte de la entrega:
+          </p>
+  
+          <ul>
+            <li>
+              El proyecto Angular completo del tutorial, con todas las secciones
+              y rutas configuradas.
+            </li>
+            <li>
+              Las imágenes utilizadas para ilustrar la Bitácora (ancla, olas,
+              botella, bitácora, puerto, etc.), guardadas en la carpeta
+              correspondiente del proyecto.
+            </li>
+            <li>
+              Las páginas HTML de la Bitácora original (Actividad 1), usadas como
+              base narrativa y estilo de referencia.
+            </li>
+            <li>
+              La URL del repositorio donde se publicará el código del tutorial,
+              en caso de subirse a una plataforma como GitHub.
+            </li>
+          </ul>
+  
+          <p class="aside">
+            Estos materiales permiten revisar tanto el resultado visible en el
+            navegador como la implementación interna de la aplicación.
+          </p>
+        </div>
+      </li>
+  
+      <!-- 4. Notas sobre plagio y buenas prácticas -->
+      <li>
+        <button type="button" (click)="toggleApartado('plagio')">
+          <span>Punto 4. Notas sobre uso de fuentes y plagio</span>
+          <span class="acordeon-icono">+</span>
+        </button>
+  
+        <div class="acordeon-contenido" [class.abierto]="isOpen('plagio')">
+          <p>
+            Dado que el trabajo puede ser analizado con herramientas automáticas,
+            se ha procurado:
+          </p>
+  
+          <ul>
+            <li>
+              Citar explícitamente las ideas tomadas de documentación oficial,
+              adaptando la redacción al estilo de la Bitácora.
+            </li>
+            <li>
+              Evitar copiar y pegar textos largos, optando por resúmenes y
+              explicaciones propias basadas en la lectura de las fuentes.
+            </li>
+            <li>
+              Mantener una estructura original en el tutorial, tanto en la
+              narrativa como en la organización de las secciones.
+            </li>
+          </ul>
+  
+          <p class="aside">
+            El resultado es un trabajo apoyado en documentación fiable, pero con
+            una voz propia coherente con la Bitácora del Comodoro.
+          </p>
+        </div>
+      </li>
+  
+    </ul>
+  </section>
+  
