@@ -3,7 +3,7 @@ export default `<!doctype html>
 <head>
   <meta charset="utf-8">
   <title>TutorialApp</title>
-  <base href="./">
+  <base href="/tutorial-app/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="stylesheet" href="styles-IWZ37BA6.css"></head>

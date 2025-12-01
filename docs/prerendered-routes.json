@@ -1,13 +1,13 @@
 {
   "routes": {
-    "/": {},
-    "/conclusiones": {},
-    "/ejemplo": {},
-    "/funcionamiento": {},
-    "/instalacion": {},
-    "/justificacion": {},
-    "/primerospasos": {},
-    "/recursos": {},
-    "/utilizacion": {}
+    "/tutorial-app": {},
+    "/tutorial-app/conclusiones": {},
+    "/tutorial-app/ejemplo": {},
+    "/tutorial-app/funcionamiento": {},
+    "/tutorial-app/instalacion": {},
+    "/tutorial-app/justificacion": {},
+    "/tutorial-app/primerospasos": {},
+    "/tutorial-app/recursos": {},
+    "/tutorial-app/utilizacion": {}
   }
 }
