@@ -114,12 +114,12 @@
       opacity 0.25s ease,
       transform 0.25s ease;
     will-change: max-height, opacity, transform;
-    padding: 0 0.9rem; /* se “activa” visualmente al abrir */
+    padding: 0 0.9rem; 
   }
   
   /* Estado abierto: altura suficiente para el texto */
   .acordeon-contenido.abierto {
-    max-height: 500px; /* súbelo si algún bloque se queda corto */
+    max-height: 500px; 
     opacity: 1;
     transform: translateY(0);
     padding-top: 0.5rem;

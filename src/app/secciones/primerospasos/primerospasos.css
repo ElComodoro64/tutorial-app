@@ -115,7 +115,7 @@
       opacity 0.25s ease,
       transform 0.25s ease;
     will-change: max-height, opacity, transform;
-    padding: 0 0.9rem; /* se “activa” visualmente al abrir */
+    padding: 0 0.9rem; 
   }
   
   /* Estado abierto: altura suficiente para el texto */
@@ -135,7 +135,7 @@
   
   .acordeon-contenido ul li {
     margin-bottom: 0.3rem;
-    color: var(--texto-principal); /* o el color que uses */
+    color: var(--texto-principal); 
   }
   
   .acordeon-contenido ul li::marker {
